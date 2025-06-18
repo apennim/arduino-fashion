@@ -68,7 +68,7 @@ def index():
                     label, confidence = model.predict(filepath)
                     logger.info(f"預測結果：{label}，信心度：{confidence}")
                     
-                    # 獲取基礎搭配建議和風格搭配建議
+                    # 獲取推薦
                     recommendations = get_recommendation(label, confidence)
                     
                     return render_template('index.html', 
@@ -111,5 +111,4 @@ if __name__ == '__main__':
     print('按 Ctrl+C 可以停止伺服器')
     print('========================')
     
-    # 使用 debug 模式運行
-    app.run(host='localhost', port=5000, debug=True)
+    app.run(debug=True)
